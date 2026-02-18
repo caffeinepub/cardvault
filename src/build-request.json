@@ -1,0 +1,151 @@
+{
+  "kind": "build_request",
+  "title": "Enhance UI with modern design and smooth animations",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Add smooth page transition animations when switching between sections (Business Card, Saved Content, Bookmarks, Ideas, Reminders) in the bottom navigation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sections fade in or slide in smoothly when navigated to",
+        "Transitions are performant on mobile devices",
+        "Animation duration is between 200-400ms"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement micro-interactions for all interactive elements: buttons should have hover/active states with scale or color transitions, form inputs should animate focus states, and cards should animate on hover",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All buttons show visual feedback on press/hover with smooth transitions",
+        "Form inputs have animated focus indicators",
+        "List items and cards have subtle hover effects",
+        "Animations respect user's prefers-reduced-motion setting"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add staggered fade-in animations for list items when rendering saved content, bookmarks, ideas, and reminders lists",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "List items animate in with a stagger delay (each item appears slightly after the previous one)",
+        "Animation is smooth and does not cause layout shift",
+        "Works consistently across all list views"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Implement smooth modal/dialog entrance and exit animations for all form dialogs (bookmark form, saved content form, idea form, reminder form, profile setup)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dialogs scale in and fade in when opening",
+        "Dialogs scale out and fade out when closing",
+        "Backdrop fades in/out smoothly",
+        "Animations are synchronized and feel polished"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add loading state animations: skeleton loaders or pulse animations for content that is loading, and smooth transitions when content appears",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Loading states show animated skeletons or pulse effects",
+        "Content fades in smoothly when loaded",
+        "Loading animations are consistent across all sections"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Modernize the visual design with updated typography (larger, bolder headings with better hierarchy), refined spacing, and contemporary card/container styles with subtle shadows or borders",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Typography follows a clear hierarchy with distinct heading and body text styles",
+        "Spacing between elements feels balanced and modern",
+        "Cards and containers have refined visual treatments (shadows, borders, or subtle gradients)",
+        "Overall design feels contemporary and polished"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Add animated empty state illustrations: when lists are empty, show animated icons or illustrations (subtle motion like floating or pulsing)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Empty state images have subtle CSS animations (float, pulse, or gentle movement)",
+        "Animations loop smoothly",
+        "Animations do not distract from the message"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
+    "All animations must respect the user's prefers-reduced-motion accessibility preference",
+    "Animations must be performant on mobile devices with no jank or frame drops"
+  ],
+  "nonGoals": [
+    "Adding new features or functionality beyond UI/animation improvements",
+    "Changing backend logic or data models",
+    "Modifying the navigation structure or section organization",
+    "Adding external animation libraries (use CSS transitions, Tailwind animations, and Framer Motion if already available)"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

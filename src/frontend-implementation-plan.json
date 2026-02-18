@@ -1,0 +1,277 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Enhance UI with modern design and smooth animations",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "summary": "Add smooth page transition animations when switching between sections in the bottom navigation",
+      "acceptanceCriteria": [
+        "Sections fade in or slide in smoothly when navigated to",
+        "Transitions are performant on mobile devices",
+        "Animation duration is between 200-400ms"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Wrap the section content rendering with Framer Motion AnimatePresence and motion.div to add fade-in/slide-in transitions when switching between sections. Use key prop based on activeSection to trigger animations. Set transition duration between 200-400ms and apply initial/animate/exit variants for smooth enter/exit effects."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement micro-interactions for all interactive elements with hover/active states and transitions",
+      "acceptanceCriteria": [
+        "All buttons show visual feedback on press/hover with smooth transitions",
+        "Form inputs have animated focus indicators",
+        "List items and cards have subtle hover effects",
+        "Animations respect user's prefers-reduced-motion setting"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global utility classes for micro-interactions: button hover/active scale and color transitions, input focus ring animations, card hover lift effects. Include @media (prefers-reduced-motion: reduce) query to disable animations for accessibility. Define transition durations and easing functions for consistent feel across all interactive elements."
+        },
+        {
+          "path": "frontend/src/components/auth/LoginButton.tsx",
+          "operation": "modify",
+          "description": "Add Tailwind transition and transform classes to enable hover scale effect and smooth color transitions on the login/logout button. Apply active:scale-95 for press feedback."
+        },
+        {
+          "path": "frontend/src/components/layout/BottomNav.tsx",
+          "operation": "modify",
+          "description": "Enhance navigation button interactive states with transition-all duration-200 and hover:scale-110 for icon scaling. Add smooth color transitions for active/inactive states."
+        },
+        {
+          "path": "frontend/src/pages/BookmarksPage.tsx",
+          "operation": "modify",
+          "description": "Add hover effects to bookmark cards with transition-transform and hover:scale-102 classes. Apply smooth transitions to action buttons within cards."
+        },
+        {
+          "path": "frontend/src/pages/SavedContentPage.tsx",
+          "operation": "modify",
+          "description": "Add hover effects to saved content cards with transition-transform and hover:scale-102 classes. Apply smooth transitions to action buttons within cards."
+        },
+        {
+          "path": "frontend/src/pages/IdeasPage.tsx",
+          "operation": "modify",
+          "description": "Add hover effects to idea cards with transition-transform and hover:scale-102 classes. Apply smooth transitions to action buttons within cards."
+        },
+        {
+          "path": "frontend/src/pages/RemindersPage.tsx",
+          "operation": "modify",
+          "description": "Add hover effects to reminder cards with transition-transform and hover:scale-102 classes. Apply smooth transitions to action buttons and checkbox interactions."
+        },
+        {
+          "path": "frontend/src/components/content/BookmarkForm.tsx",
+          "operation": "modify",
+          "description": "Add animated focus states to form inputs using focus:ring-2 and transition-all classes. Include smooth color transitions for focus indicators."
+        },
+        {
+          "path": "frontend/src/components/content/SavedContentForm.tsx",
+          "operation": "modify",
+          "description": "Add animated focus states to form inputs using focus:ring-2 and transition-all classes. Include smooth color transitions for focus indicators."
+        },
+        {
+          "path": "frontend/src/components/ideas/IdeaForm.tsx",
+          "operation": "modify",
+          "description": "Add animated focus states to textarea using focus:ring-2 and transition-all classes. Include smooth color transitions for focus indicators."
+        },
+        {
+          "path": "frontend/src/components/reminders/ReminderForm.tsx",
+          "operation": "modify",
+          "description": "Add animated focus states to form inputs using focus:ring-2 and transition-all classes. Include smooth color transitions for focus indicators."
+        },
+        {
+          "path": "frontend/src/components/auth/ProfileSetupDialog.tsx",
+          "operation": "modify",
+          "description": "Add animated focus states to profile setup form inputs using focus:ring-2 and transition-all classes. Include smooth color transitions for focus indicators."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add staggered fade-in animations for list items when rendering saved content, bookmarks, ideas, and reminders lists",
+      "acceptanceCriteria": [
+        "List items animate in with a stagger delay (each item appears slightly after the previous one)",
+        "Animation is smooth and does not cause layout shift",
+        "Works consistently across all list views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BookmarksPage.tsx",
+          "operation": "modify",
+          "description": "Wrap the bookmarks list with Framer Motion's motion.div and apply stagger children animations. Use initial={{ opacity: 0, y: 20 }}, animate={{ opacity: 1, y: 0 }}, and transition with staggerChildren delay of 0.05s per item for smooth sequential fade-in effect."
+        },
+        {
+          "path": "frontend/src/pages/SavedContentPage.tsx",
+          "operation": "modify",
+          "description": "Wrap the saved content list with Framer Motion's motion.div and apply stagger children animations. Use initial={{ opacity: 0, y: 20 }}, animate={{ opacity: 1, y: 0 }}, and transition with staggerChildren delay of 0.05s per item for smooth sequential fade-in effect."
+        },
+        {
+          "path": "frontend/src/pages/IdeasPage.tsx",
+          "operation": "modify",
+          "description": "Wrap the ideas list with Framer Motion's motion.div and apply stagger children animations. Use initial={{ opacity: 0, y: 20 }}, animate={{ opacity: 1, y: 0 }}, and transition with staggerChildren delay of 0.05s per item for smooth sequential fade-in effect."
+        },
+        {
+          "path": "frontend/src/pages/RemindersPage.tsx",
+          "operation": "modify",
+          "description": "Wrap the reminders list with Framer Motion's motion.div and apply stagger children animations. Use initial={{ opacity: 0, y: 20 }}, animate={{ opacity: 1, y: 0 }}, and transition with staggerChildren delay of 0.05s per item for smooth sequential fade-in effect."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Implement smooth modal/dialog entrance and exit animations for all form dialogs",
+      "acceptanceCriteria": [
+        "Dialogs scale in and fade in when opening",
+        "Dialogs scale out and fade out when closing",
+        "Backdrop fades in/out smoothly",
+        "Animations are synchronized and feel polished"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/content/BookmarkForm.tsx",
+          "operation": "modify",
+          "description": "Add Framer Motion animations to the Dialog component: wrap DialogContent with motion.div using initial={{ opacity: 0, scale: 0.95 }}, animate={{ opacity: 1, scale: 1 }}, and exit={{ opacity: 0, scale: 0.95 }} with 200ms duration. Ensure AnimatePresence wraps the dialog for exit animations."
+        },
+        {
+          "path": "frontend/src/components/content/SavedContentForm.tsx",
+          "operation": "modify",
+          "description": "Add Framer Motion animations to the Dialog component: wrap DialogContent with motion.div using initial={{ opacity: 0, scale: 0.95 }}, animate={{ opacity: 1, scale: 1 }}, and exit={{ opacity: 0, scale: 0.95 }} with 200ms duration. Ensure AnimatePresence wraps the dialog for exit animations."
+        },
+        {
+          "path": "frontend/src/components/ideas/IdeaForm.tsx",
+          "operation": "modify",
+          "description": "Add Framer Motion animations to the Dialog component: wrap DialogContent with motion.div using initial={{ opacity: 0, scale: 0.95 }}, animate={{ opacity: 1, scale: 1 }}, and exit={{ opacity: 0, scale: 0.95 }} with 200ms duration. Ensure AnimatePresence wraps the dialog for exit animations."
+        },
+        {
+          "path": "frontend/src/components/reminders/ReminderForm.tsx",
+          "operation": "modify",
+          "description": "Add Framer Motion animations to the Dialog component: wrap DialogContent with motion.div using initial={{ opacity: 0, scale: 0.95 }}, animate={{ opacity: 1, scale: 1 }}, and exit={{ opacity: 0, scale: 0.95 }} with 200ms duration. Ensure AnimatePresence wraps the dialog for exit animations."
+        },
+        {
+          "path": "frontend/src/components/auth/ProfileSetupDialog.tsx",
+          "operation": "modify",
+          "description": "Add Framer Motion animations to the Dialog component: wrap DialogContent with motion.div using initial={{ opacity: 0, scale: 0.95 }}, animate={{ opacity: 1, scale: 1 }}, and exit={{ opacity: 0, scale: 0.95 }} with 200ms duration. Ensure AnimatePresence wraps the dialog for exit animations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add loading state animations with skeleton loaders or pulse animations for content that is loading",
+      "acceptanceCriteria": [
+        "Loading states show animated skeletons or pulse effects",
+        "Content fades in smoothly when loaded",
+        "Loading animations are consistent across all sections"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/loading/SkeletonLoader.tsx",
+          "operation": "create",
+          "description": "Create a reusable SkeletonLoader component that renders animated skeleton placeholders using Tailwind's animate-pulse utility. Support variants for card, list-item, and text skeletons. Export SkeletonCard and SkeletonList sub-components for common patterns."
+        },
+        {
+          "path": "frontend/src/pages/BookmarksPage.tsx",
+          "operation": "modify",
+          "description": "Replace loading state with SkeletonLoader component that shows animated skeleton cards while bookmarks are being fetched. Wrap loaded content in motion.div with fade-in animation when data arrives."
+        },
+        {
+          "path": "frontend/src/pages/SavedContentPage.tsx",
+          "operation": "modify",
+          "description": "Replace loading state with SkeletonLoader component that shows animated skeleton cards while saved content is being fetched. Wrap loaded content in motion.div with fade-in animation when data arrives."
+        },
+        {
+          "path": "frontend/src/pages/IdeasPage.tsx",
+          "operation": "modify",
+          "description": "Replace loading state with SkeletonLoader component that shows animated skeleton cards while ideas are being fetched. Wrap loaded content in motion.div with fade-in animation when data arrives."
+        },
+        {
+          "path": "frontend/src/pages/RemindersPage.tsx",
+          "operation": "modify",
+          "description": "Replace loading state with SkeletonLoader component that shows animated skeleton cards while reminders are being fetched. Wrap loaded content in motion.div with fade-in animation when data arrives."
+        },
+        {
+          "path": "frontend/src/pages/BusinessCardPage.tsx",
+          "operation": "modify",
+          "description": "Replace loading state with SkeletonLoader component that shows animated skeleton form fields while business card data is being fetched. Wrap loaded content in motion.div with fade-in animation when data arrives."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Modernize the visual design with updated typography, refined spacing, and contemporary card/container styles",
+      "acceptanceCriteria": [
+        "Typography follows a clear hierarchy with distinct heading and body text styles",
+        "Spacing between elements feels balanced and modern",
+        "Cards and containers have refined visual treatments (shadows, borders, or subtle gradients)",
+        "Overall design feels contemporary and polished"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Enhance typography scale with larger, bolder heading styles (h1-h6) using modern font weights (600-800) and improved line heights. Add utility classes for refined spacing scale (space-y-6, space-y-8, etc.). Define modern card styles with subtle shadows, rounded corners, and optional gradient overlays. Update color tokens if needed for contemporary palette."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with refined typography scale, modern font sizes (text-3xl, text-4xl for headings), updated spacing scale, enhanced shadow utilities (shadow-soft, shadow-elevated), and contemporary color palette extensions if needed. Configure container queries and responsive breakpoints for balanced layouts."
+        },
+        {
+          "path": "frontend/src/components/layout/Header.tsx",
+          "operation": "modify",
+          "description": "Update Header component with larger, bolder section titles using new typography classes (text-2xl font-bold). Apply refined spacing and modern visual treatments with subtle shadows or borders."
+        },
+        {
+          "path": "frontend/src/pages/BookmarksPage.tsx",
+          "operation": "modify",
+          "description": "Update bookmark cards with refined visual styles: apply modern shadow utilities, rounded-xl corners, improved padding (p-6), and clear typography hierarchy for titles and metadata. Ensure consistent spacing between cards."
+        },
+        {
+          "path": "frontend/src/pages/SavedContentPage.tsx",
+          "operation": "modify",
+          "description": "Update saved content cards with refined visual styles: apply modern shadow utilities, rounded-xl corners, improved padding (p-6), and clear typography hierarchy for titles and metadata. Ensure consistent spacing between cards."
+        },
+        {
+          "path": "frontend/src/pages/IdeasPage.tsx",
+          "operation": "modify",
+          "description": "Update idea cards with refined visual styles: apply modern shadow utilities, rounded-xl corners, improved padding (p-6), and clear typography hierarchy. Ensure consistent spacing between cards."
+        },
+        {
+          "path": "frontend/src/pages/RemindersPage.tsx",
+          "operation": "modify",
+          "description": "Update reminder cards with refined visual styles: apply modern shadow utilities, rounded-xl corners, improved padding (p-6), and clear typography hierarchy for content and due dates. Ensure consistent spacing between cards."
+        },
+        {
+          "path": "frontend/src/pages/BusinessCardPage.tsx",
+          "operation": "modify",
+          "description": "Update business card display and form with modern typography hierarchy (larger headings, clear labels), refined spacing, and contemporary container styles with subtle shadows and rounded corners."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Add animated empty state illustrations with subtle motion like floating or pulsing",
+      "acceptanceCriteria": [
+        "Empty state images have subtle CSS animations (float, pulse, or gentle movement)",
+        "Animations loop smoothly",
+        "Animations do not distract from the message"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/empty-states/EmptyState.tsx",
+          "operation": "modify",
+          "description": "Add Framer Motion animation to the empty state image with subtle floating effect using animate={{ y: [-10, 10, -10] }} with smooth easing and 3s duration for infinite loop. Apply transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}. Ensure animation respects prefers-reduced-motion by conditionally applying based on matchMedia query."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Add custom keyframe animations for empty state effects: define 'float' animation with vertical movement and 'pulse-soft' for subtle scaling. Configure animation utilities (animate-float, animate-pulse-soft) with appropriate durations and easing functions."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Web-based mobile-friendly app to create and persistently store an editable digital business card, with link/text saving, ideas notes, and in-app reminders (no system push notifications).",
+  "architectural_notes": [
+    "Target is a mobile-friendly web app (not a native mobile app).",
+    "Reminders should be displayed only inside the app; no OS-level push/system notifications."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-internet-identity-sign-in-and-ensure-all-user-data-is-scoped-to-the-authenticated-user-each-user-sees-only-their-own-business-card-links-ideas-and-reminders",
+      "title": "Implement Internet Identity sign-in and ensure all user data is scoped to the authenticated user (each user sees only their own business card, links, ideas, and reminders).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-backend-persistent-storage-stable-state-for-an-editable-digital-business-card-with-fixed-fields-e-g-full-name-title-phone-email-website-bio-that-the-user-can-update-at-any-time",
+      "title": "Create backend persistent storage (stable state) for an editable digital business card with fixed fields (e.g., full name, title, phone, email, website, bio) that the user can update at any time.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-section-to-create-edit-delete-and-list-saved-links-and-text-snippets-general-saved-content-stored-persistently-per-user",
+      "title": "Add a section to create, edit, delete, and list saved links and text snippets (general saved content), stored persistently per user.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-dedicated-bookmark-section-for-saving-links-separate-from-general-saved-content-with-create-edit-delete-and-persistent-storage-per-user",
+      "title": "Add a dedicated bookmark section for saving links (separate from general saved content), with create/edit/delete and persistent storage per user.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-ideas-notes-section-to-create-edit-delete-and-list-ideas-notes-stored-persistently-per-user",
+      "title": "Add an Ideas/Notes section to create, edit, delete, and list ideas (notes), stored persistently per user.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-in-app-reminders-tasks-with-optional-due-date-time-and-completion-status-show-upcoming-and-overdue-reminders-inside-the-app-ui-only-no-system-device-notifications",
+      "title": "Implement in-app reminders/tasks with optional due date/time and completion status; show upcoming and overdue reminders inside the app UI only (no system/device notifications).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-mobile-first-app-like-navigation-structure-with-clear-sections-for-business-card-saved-content-bookmarks-ideas-and-reminders-optimized-for-phone-screens",
+      "title": "Provide a mobile-first, app-like navigation structure with clear sections for: Business Card, Saved Content, Bookmarks, Ideas, and Reminders, optimized for phone screens.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-distinctive-visual-theme-consistently-across-the-app-colors-typography-spacing-and-component-styling-suitable-for-a-personal-productivity-digital-identity-tool-avoiding-a-blue-purple-dominant-palette",
+      "title": "Apply a coherent, distinctive visual theme consistently across the app (colors, typography, spacing, and component styling) suitable for a personal productivity + digital identity tool, avoiding a blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-basic-empty-state-and-branding-static-images-and-render-them-from-frontend-static-assets-do-not-serve-images-via-the-backend",
+      "title": "Generate and include basic empty-state and branding static images, and render them from frontend static assets (do not serve images via the backend).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-smooth-page-transition-animations-when-switching-between-sections-business-card-saved-content-bookmarks-ideas-reminders-in-the-bottom-navigation",
+      "title": "Add smooth page transition animations when switching between sections (Business Card, Saved Content, Bookmarks, Ideas, Reminders) in the bottom navigation",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-micro-interactions-for-all-interactive-elements-buttons-should-have-hover-active-states-with-scale-or-color-transitions-form-inputs-should-animate-focus-states-and-cards-should-animate-on-hover",
+      "title": "Implement micro-interactions for all interactive elements: buttons should have hover/active states with scale or color transitions, form inputs should animate focus states, and cards should animate on hover",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-staggered-fade-in-animations-for-list-items-when-rendering-saved-content-bookmarks-ideas-and-reminders-lists",
+      "title": "Add staggered fade-in animations for list items when rendering saved content, bookmarks, ideas, and reminders lists",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-smooth-modal-dialog-entrance-and-exit-animations-for-all-form-dialogs-bookmark-form-saved-content-form-idea-form-reminder-form-profile-setup",
+      "title": "Implement smooth modal/dialog entrance and exit animations for all form dialogs (bookmark form, saved content form, idea form, reminder form, profile setup)",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-loading-state-animations-skeleton-loaders-or-pulse-animations-for-content-that-is-loading-and-smooth-transitions-when-content-appears",
+      "title": "Add loading state animations: skeleton loaders or pulse animations for content that is loading, and smooth transitions when content appears",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-modernize-the-visual-design-with-updated-typography-larger-bolder-headings-with-better-hierarchy-refined-spacing-and-contemporary-card-container-styles-with-subtle-shadows-or-borders",
+      "title": "Modernize the visual design with updated typography (larger, bolder headings with better hierarchy), refined spacing, and contemporary card/container styles with subtle shadows or borders",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-animated-empty-state-illustrations-when-lists-are-empty-show-animated-icons-or-illustrations-subtle-motion-like-floating-or-pulsing",
+      "title": "Add animated empty state illustrations: when lists are empty, show animated icons or illustrations (subtle motion like floating or pulsing)",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an editable digital business card (fixed fields but user-editable)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add and manage links and text content (saved and accessible on return)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Persistent user data storage so information is not lost between visits/sessions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "In-app reminders/tasks with due times shown inside the app (no device/system notifications)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Section to save/bookmark links separately",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Section to record and store ideas/notes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Improve UI to be more modern with attractive, animated transitions and micro-interactions",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "CardVault",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
