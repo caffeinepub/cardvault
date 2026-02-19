@@ -1,15 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Enhance the UI with modern design and smooth animations throughout the application.
+**Goal:** Enable users to share their business cards via a public link that anyone can view without authentication.
 
 **Planned changes:**
-- Add smooth page transition animations when switching between sections in bottom navigation
-- Implement micro-interactions for all interactive elements (buttons, form inputs, cards) with hover/active states
-- Add staggered fade-in animations for list items in all list views
-- Implement smooth modal/dialog entrance and exit animations for all forms
-- Add loading state animations with skeleton loaders or pulse effects
-- Modernize visual design with updated typography, refined spacing, and contemporary card styles
-- Add animated empty state illustrations with subtle CSS animations (float, pulse, or gentle movement)
+- Add a public backend endpoint that retrieves business cards by principal ID without requiring authentication
+- Add a "Share" button to the business card page that generates a shareable URL
+- Create a public view page that displays read-only business cards accessed via sharing links
+- Implement copy-to-clipboard functionality with visual feedback for the shareable URL
 
-**User-visible outcome:** Users will experience a more polished, modern interface with smooth animations and transitions throughout the app, making interactions feel more responsive and engaging.
+**User-visible outcome:** Users can generate and share a link to their business card, and recipients can view the card without needing to log in or have an account.

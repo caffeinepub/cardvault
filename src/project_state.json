@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Web-based mobile-friendly app to create and persistently store an editable digital business card, with link/text saving, ideas notes, and in-app reminders (no system push notifications).",
   "architectural_notes": [
     "Target is a mobile-friendly web app (not a native mobile app).",
@@ -136,6 +136,30 @@
         "REQ-16"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-a-share-button-to-the-businesscardpage-that-generates-and-displays-a-shareable-url-containing-the-user-s-principal-id",
+      "title": "Add a 'Share' button to the BusinessCardPage that generates and displays a shareable URL containing the user's principal ID",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-public-business-card-view-page-that-displays-a-read-only-version-of-any-user-s-business-card-when-accessed-via-the-sharing-url",
+      "title": "Create a public business card view page that displays a read-only version of any user's business card when accessed via the sharing URL",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-copy-to-clipboard-functionality-with-visual-feedback-when-the-user-copies-their-shareable-business-card-link",
+      "title": "Add copy-to-clipboard functionality with visual feedback when the user copies their shareable business card link",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -179,6 +203,20 @@
       "id": "AR-7",
       "summary": "Improve UI to be more modern with attractive, animated transitions and micro-interactions",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add ability to share business card via link",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add a public query endpoint to the backend that retrieves a user's business card by their principal ID, allowing unauthenticated access for sharing purposes",
+      "reqIds": [
+        "REQ-17"
+      ],
       "status": "pending"
     }
   ],

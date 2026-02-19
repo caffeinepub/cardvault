@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useActor } from './useActor';
 import type { UserProfile, BusinessCard, SavedContent, Idea, Reminder, ContentType } from '../backend';
+import { Principal } from '@dfinity/principal';
 import { toast } from 'sonner';
 
 // User Profile Queries
@@ -54,6 +55,20 @@ export function useGetBusinessCard() {
       return actor.getBusinessCard();
     },
     enabled: !!actor && !isFetching,
+  });
+}
+
+export function useGetBusinessCardByPrincipal(principal: Principal | null) {
+  const { actor } = useActor();
+
+  return useQuery<BusinessCard | null>({
+    queryKey: ['businessCard', principal?.toString()],
+    queryFn: async () => {
+      if (!actor || !principal) return null;
+      return actor.getBusinessCardByPrincipal(principal);
+    },
+    enabled: !!actor && !!principal,
+    retry: false,
   });
 }
 

@@ -3,14 +3,26 @@ import { useGetCallerUserProfile } from './hooks/useQueries';
 import SignInPage from './pages/SignInPage';
 import ProfileSetupDialog from './components/auth/ProfileSetupDialog';
 import AppLayout from './components/layout/AppLayout';
+import PublicBusinessCardPage from './pages/PublicBusinessCardPage';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from 'next-themes';
+import { isPublicCardRoute } from './utils/urlParams';
 
 export default function App() {
   const { identity, isInitializing } = useInternetIdentity();
   const { data: userProfile, isLoading: profileLoading, isFetched } = useGetCallerUserProfile();
 
   const isAuthenticated = !!identity && !identity.getPrincipal().isAnonymous();
+
+  // Check if this is a public card route (no authentication required)
+  if (isPublicCardRoute()) {
+    return (
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <PublicBusinessCardPage />
+        <Toaster />
+      </ThemeProvider>
+    );
+  }
 
   // Show loading state during initialization
   if (isInitializing) {

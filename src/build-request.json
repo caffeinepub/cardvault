@@ -1,148 +1,100 @@
 {
   "kind": "build_request",
-  "title": "Enhance UI with modern design and smooth animations",
+  "title": "Add business card sharing via link",
+  "projectName": "CardVault",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-10",
-      "text": "Add smooth page transition animations when switching between sections (Business Card, Saved Content, Bookmarks, Ideas, Reminders) in the bottom navigation",
-      "target": "frontend",
+      "id": "REQ-17",
+      "text": "Add a public query endpoint to the backend that retrieves a user's business card by their principal ID, allowing unauthenticated access for sharing purposes",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ],
         "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+          "بله دیگه."
         ]
       },
       "acceptanceCriteria": [
-        "Sections fade in or slide in smoothly when navigated to",
-        "Transitions are performant on mobile devices",
-        "Animation duration is between 200-400ms"
+        "Backend exposes a public query function that accepts a principal ID and returns the associated business card data",
+        "The function returns an optional result (null if no card exists for that principal)",
+        "No authentication is required to call this endpoint"
       ]
     },
     {
-      "id": "REQ-11",
-      "text": "Implement micro-interactions for all interactive elements: buttons should have hover/active states with scale or color transitions, form inputs should animate focus states, and cards should animate on hover",
+      "id": "REQ-18",
+      "text": "Add a 'Share' button to the BusinessCardPage that generates and displays a shareable URL containing the user's principal ID",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ],
         "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+          "بله دیگه."
         ]
       },
       "acceptanceCriteria": [
-        "All buttons show visual feedback on press/hover with smooth transitions",
-        "Form inputs have animated focus indicators",
-        "List items and cards have subtle hover effects",
-        "Animations respect user's prefers-reduced-motion setting"
+        "A share button appears on the business card page when the user has created their card",
+        "Clicking the button generates a URL with the user's principal ID as a parameter",
+        "The URL is displayed in a dialog or modal for easy copying",
+        "Button includes appropriate icon (share/link icon)"
       ]
     },
     {
-      "id": "REQ-12",
-      "text": "Add staggered fade-in animations for list items when rendering saved content, bookmarks, ideas, and reminders lists",
+      "id": "REQ-19",
+      "text": "Create a public business card view page that displays a read-only version of any user's business card when accessed via the sharing URL",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ],
         "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+          "بله دیگه."
         ]
       },
       "acceptanceCriteria": [
-        "List items animate in with a stagger delay (each item appears slightly after the previous one)",
-        "Animation is smooth and does not cause layout shift",
-        "Works consistently across all list views"
+        "A new route or page component handles shared card URLs",
+        "The page extracts the principal ID from the URL parameters",
+        "The page fetches and displays the business card data using the public query endpoint",
+        "The view is read-only with no edit functionality",
+        "Shows appropriate message if the card does not exist or fails to load",
+        "Maintains the app's visual theme and responsive design"
       ]
     },
     {
-      "id": "REQ-13",
-      "text": "Implement smooth modal/dialog entrance and exit animations for all form dialogs (bookmark form, saved content form, idea form, reminder form, profile setup)",
+      "id": "REQ-20",
+      "text": "Add copy-to-clipboard functionality with visual feedback when the user copies their shareable business card link",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-10"
+          "msg-user-final"
         ],
         "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
+          "بله دیگه."
         ]
       },
       "acceptanceCriteria": [
-        "Dialogs scale in and fade in when opening",
-        "Dialogs scale out and fade out when closing",
-        "Backdrop fades in/out smoothly",
-        "Animations are synchronized and feel polished"
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "text": "Add loading state animations: skeleton loaders or pulse animations for content that is loading, and smooth transitions when content appears",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ],
-        "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Loading states show animated skeletons or pulse effects",
-        "Content fades in smoothly when loaded",
-        "Loading animations are consistent across all sections"
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "text": "Modernize the visual design with updated typography (larger, bolder headings with better hierarchy), refined spacing, and contemporary card/container styles with subtle shadows or borders",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ],
-        "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Typography follows a clear hierarchy with distinct heading and body text styles",
-        "Spacing between elements feels balanced and modern",
-        "Cards and containers have refined visual treatments (shadows, borders, or subtle gradients)",
-        "Overall design feels contemporary and polished"
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "text": "Add animated empty state illustrations: when lists are empty, show animated icons or illustrations (subtle motion like floating or pulsing)",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-10"
-        ],
-        "quotes": [
-          "Ui رو بهتر و مدرن‌تر با انیمه های جذاب و متحرک بساز"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Empty state images have subtle CSS animations (float, pulse, or gentle movement)",
-        "Animations loop smoothly",
-        "Animations do not distract from the message"
+        "A copy button appears next to or within the shareable URL display",
+        "Clicking the copy button copies the URL to the system clipboard",
+        "Visual feedback appears (toast notification, button state change, or checkmark animation) confirming successful copy",
+        "The interaction follows the app's existing micro-interaction patterns"
       ]
     }
   ],
   "constraints": [
-    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
-    "All animations must respect the user's prefers-reduced-motion accessibility preference",
-    "Animations must be performant on mobile devices with no jank or frame drops"
+    "Do not modify the existing backend stable state structure for user profiles or business cards",
+    "Do not change the existing authentication flow or Internet Identity integration",
+    "Maintain the single-actor backend architecture",
+    "The shared card view must not require authentication to access"
   ],
   "nonGoals": [
-    "Adding new features or functionality beyond UI/animation improvements",
-    "Changing backend logic or data models",
-    "Modifying the navigation structure or section organization",
-    "Adding external animation libraries (use CSS transitions, Tailwind animations, and Framer Motion if already available)"
+    "Sharing other user data types (saved content, bookmarks, ideas, reminders)",
+    "Social media integration or direct sharing to platforms",
+    "QR code generation for business cards",
+    "Analytics or tracking of card views",
+    "Custom vanity URLs or short links",
+    "Editing capabilities on the shared card view"
   ],
   "imageRequirements": {
     "required": [],

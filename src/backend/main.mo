@@ -105,6 +105,11 @@ actor {
     businessCards.get(caller);
   };
 
+  // Allow unauthenticated retrieval of other users' business cards
+  public query func getBusinessCardByPrincipal(principal : Principal) : async ?BusinessCard {
+    businessCards.get(principal);
+  };
+
   // Saved Content Functions
   public shared ({ caller }) func createSavedContent(content : SavedContent) : async () {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {

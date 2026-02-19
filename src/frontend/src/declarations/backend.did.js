@@ -59,6 +59,11 @@ export const idlService = IDL.Service({
   'deleteReminder' : IDL.Func([IDL.Text], [], []),
   'deleteSavedContent' : IDL.Func([IDL.Text], [], []),
   'getBusinessCard' : IDL.Func([], [IDL.Opt(BusinessCard)], ['query']),
+  'getBusinessCardByPrincipal' : IDL.Func(
+      [IDL.Principal],
+      [IDL.Opt(BusinessCard)],
+      ['query'],
+    ),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
   'getUpcomingReminders' : IDL.Func([], [IDL.Vec(Reminder)], []),
@@ -131,6 +136,11 @@ export const idlFactory = ({ IDL }) => {
     'deleteReminder' : IDL.Func([IDL.Text], [], []),
     'deleteSavedContent' : IDL.Func([IDL.Text], [], []),
     'getBusinessCard' : IDL.Func([], [IDL.Opt(BusinessCard)], ['query']),
+    'getBusinessCardByPrincipal' : IDL.Func(
+        [IDL.Principal],
+        [IDL.Opt(BusinessCard)],
+        ['query'],
+      ),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
     'getUpcomingReminders' : IDL.Func([], [IDL.Vec(Reminder)], []),

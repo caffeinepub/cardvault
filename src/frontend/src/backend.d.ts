@@ -56,6 +56,7 @@ export interface backendInterface {
     deleteReminder(id: string): Promise<void>;
     deleteSavedContent(id: string): Promise<void>;
     getBusinessCard(): Promise<BusinessCard | null>;
+    getBusinessCardByPrincipal(principal: Principal): Promise<BusinessCard | null>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
     getUpcomingReminders(): Promise<Array<Reminder>>;

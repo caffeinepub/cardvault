@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-smooth-page-transition-animations-when-switching-between-sections-business-card-saved-content-bookmarks-ideas-reminders-in-the-bottom-navigation",
-      "featureTitle": "Add smooth page transition animations when switching between sections (Business Card, Saved Content, Bookmarks, Ideas, Reminders) in the bottom navigation",
+      "featureId": "feature-add-a-share-button-to-the-businesscardpage-that-generates-and-displays-a-shareable-url-containing-the-user-s-principal-id",
+      "featureTitle": "Add a 'Share' button to the BusinessCardPage that generates and displays a shareable URL containing the user's principal ID",
       "files": [
-        "frontend/src/components/layout/AppLayout.tsx"
+        "frontend/src/components/share/ShareCardDialog.tsx",
+        "frontend/src/pages/BusinessCardPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -16,26 +17,17 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-10"
+        "REQ-18"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-micro-interactions-for-all-interactive-elements-buttons-should-have-hover-active-states-with-scale-or-color-transitions-form-inputs-should-animate-focus-states-and-cards-should-animate-on-hover",
-      "featureTitle": "Implement micro-interactions for all interactive elements: buttons should have hover/active states with scale or color transitions, form inputs should animate focus states, and cards should animate on hover",
+      "featureId": "feature-create-a-public-business-card-view-page-that-displays-a-read-only-version-of-any-user-s-business-card-when-accessed-via-the-sharing-url",
+      "featureTitle": "Create a public business card view page that displays a read-only version of any user's business card when accessed via the sharing URL",
       "files": [
-        "frontend/src/components/auth/LoginButton.tsx",
-        "frontend/src/components/auth/ProfileSetupDialog.tsx",
-        "frontend/src/components/content/BookmarkForm.tsx",
-        "frontend/src/components/content/SavedContentForm.tsx",
-        "frontend/src/components/ideas/IdeaForm.tsx",
-        "frontend/src/components/layout/BottomNav.tsx",
-        "frontend/src/components/reminders/ReminderForm.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/BookmarksPage.tsx",
-        "frontend/src/pages/IdeasPage.tsx",
-        "frontend/src/pages/RemindersPage.tsx",
-        "frontend/src/pages/SavedContentPage.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/PublicBusinessCardPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -46,18 +38,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-19"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-staggered-fade-in-animations-for-list-items-when-rendering-saved-content-bookmarks-ideas-and-reminders-lists",
-      "featureTitle": "Add staggered fade-in animations for list items when rendering saved content, bookmarks, ideas, and reminders lists",
+      "featureId": "feature-add-copy-to-clipboard-functionality-with-visual-feedback-when-the-user-copies-their-shareable-business-card-link",
+      "featureTitle": "Add copy-to-clipboard functionality with visual feedback when the user copies their shareable business card link",
       "files": [
-        "frontend/src/pages/BookmarksPage.tsx",
-        "frontend/src/pages/IdeasPage.tsx",
-        "frontend/src/pages/RemindersPage.tsx",
-        "frontend/src/pages/SavedContentPage.tsx"
+        "frontend/src/components/share/ShareCardDialog.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -68,100 +57,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-12"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-smooth-modal-dialog-entrance-and-exit-animations-for-all-form-dialogs-bookmark-form-saved-content-form-idea-form-reminder-form-profile-setup",
-      "featureTitle": "Implement smooth modal/dialog entrance and exit animations for all form dialogs (bookmark form, saved content form, idea form, reminder form, profile setup)",
-      "files": [
-        "frontend/src/components/auth/ProfileSetupDialog.tsx",
-        "frontend/src/components/content/BookmarkForm.tsx",
-        "frontend/src/components/content/SavedContentForm.tsx",
-        "frontend/src/components/ideas/IdeaForm.tsx",
-        "frontend/src/components/reminders/ReminderForm.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-13"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-loading-state-animations-skeleton-loaders-or-pulse-animations-for-content-that-is-loading-and-smooth-transitions-when-content-appears",
-      "featureTitle": "Add loading state animations: skeleton loaders or pulse animations for content that is loading, and smooth transitions when content appears",
-      "files": [
-        "frontend/src/components/loading/SkeletonLoader.tsx",
-        "frontend/src/pages/BookmarksPage.tsx",
-        "frontend/src/pages/BusinessCardPage.tsx",
-        "frontend/src/pages/IdeasPage.tsx",
-        "frontend/src/pages/RemindersPage.tsx",
-        "frontend/src/pages/SavedContentPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-14"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-modernize-the-visual-design-with-updated-typography-larger-bolder-headings-with-better-hierarchy-refined-spacing-and-contemporary-card-container-styles-with-subtle-shadows-or-borders",
-      "featureTitle": "Modernize the visual design with updated typography (larger, bolder headings with better hierarchy), refined spacing, and contemporary card/container styles with subtle shadows or borders",
-      "files": [
-        "frontend/src/components/layout/Header.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/BookmarksPage.tsx",
-        "frontend/src/pages/BusinessCardPage.tsx",
-        "frontend/src/pages/IdeasPage.tsx",
-        "frontend/src/pages/RemindersPage.tsx",
-        "frontend/src/pages/SavedContentPage.tsx",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-15"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-animated-empty-state-illustrations-when-lists-are-empty-show-animated-icons-or-illustrations-subtle-motion-like-floating-or-pulsing",
-      "featureTitle": "Add animated empty state illustrations: when lists are empty, show animated icons or illustrations (subtle motion like floating or pulsing)",
-      "files": [
-        "frontend/src/components/empty-states/EmptyState.tsx",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-16"
+        "REQ-20"
       ],
       "confidence": "high"
     }

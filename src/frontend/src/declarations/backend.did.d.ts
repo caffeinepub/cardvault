@@ -49,6 +49,7 @@ export interface _SERVICE {
   'deleteReminder' : ActorMethod<[string], undefined>,
   'deleteSavedContent' : ActorMethod<[string], undefined>,
   'getBusinessCard' : ActorMethod<[], [] | [BusinessCard]>,
+  'getBusinessCardByPrincipal' : ActorMethod<[Principal], [] | [BusinessCard]>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getUpcomingReminders' : ActorMethod<[], Array<Reminder>>,

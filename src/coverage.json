@@ -1,182 +1,79 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-18T23:23:42.574Z",
+  "generatedAt": "2026-02-19T00:13:11.590Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 7,
-    "implemented": 7,
+    "total": 4,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-10",
-        "summary": "Add smooth page transition animations when switching between sections (Business Card, Saved Content, Bookmarks, Ideas, Reminders) in the bottom navigation",
+        "id": "REQ-17",
+        "summary": "Add a public query endpoint to the backend that retrieves a user's business card by their principal ID, allowing unauthenticated access for sharing purposes",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Add a 'Share' button to the BusinessCardPage that generates and displays a shareable URL containing the user's principal ID",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/layout/AppLayout.tsx"
+          "frontend/src/pages/BusinessCardPage.tsx",
+          "frontend/src/components/share/ShareCardDialog.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/layout/AppLayout.tsx"
+          "frontend/src/pages/BusinessCardPage.tsx",
+          "frontend/src/components/share/ShareCardDialog.tsx"
         ]
       },
       {
-        "id": "REQ-11",
-        "summary": "Implement micro-interactions for all interactive elements: buttons should have hover/active states with scale or color transitions, form inputs should animate focus states, and cards should animate on hover",
+        "id": "REQ-19",
+        "summary": "Create a public business card view page that displays a read-only version of any user's business card when accessed via the sharing URL",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/components/auth/LoginButton.tsx",
-          "frontend/src/components/layout/BottomNav.tsx",
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx",
-          "frontend/src/components/content/BookmarkForm.tsx",
-          "frontend/src/components/content/SavedContentForm.tsx",
-          "frontend/src/components/ideas/IdeaForm.tsx",
-          "frontend/src/components/reminders/ReminderForm.tsx",
-          "frontend/src/components/auth/ProfileSetupDialog.tsx"
+          "frontend/src/pages/PublicBusinessCardPage.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/hooks/useQueries.ts"
         ],
         "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/components/auth/LoginButton.tsx",
-          "frontend/src/components/layout/BottomNav.tsx",
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx",
-          "frontend/src/components/content/BookmarkForm.tsx",
-          "frontend/src/components/content/SavedContentForm.tsx",
-          "frontend/src/components/ideas/IdeaForm.tsx",
-          "frontend/src/components/reminders/ReminderForm.tsx",
-          "frontend/src/components/auth/ProfileSetupDialog.tsx"
+          "frontend/src/pages/PublicBusinessCardPage.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/hooks/useQueries.ts"
         ]
       },
       {
-        "id": "REQ-12",
-        "summary": "Add staggered fade-in animations for list items when rendering saved content, bookmarks, ideas, and reminders lists",
+        "id": "REQ-20",
+        "summary": "Add copy-to-clipboard functionality with visual feedback when the user copies their shareable business card link",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx"
+          "frontend/src/components/share/ShareCardDialog.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-13",
-        "summary": "Implement smooth modal/dialog entrance and exit animations for all form dialogs (bookmark form, saved content form, idea form, reminder form, profile setup)",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/content/BookmarkForm.tsx",
-          "frontend/src/components/content/SavedContentForm.tsx",
-          "frontend/src/components/ideas/IdeaForm.tsx",
-          "frontend/src/components/reminders/ReminderForm.tsx",
-          "frontend/src/components/auth/ProfileSetupDialog.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/content/BookmarkForm.tsx",
-          "frontend/src/components/content/SavedContentForm.tsx",
-          "frontend/src/components/ideas/IdeaForm.tsx",
-          "frontend/src/components/reminders/ReminderForm.tsx",
-          "frontend/src/components/auth/ProfileSetupDialog.tsx"
-        ]
-      },
-      {
-        "id": "REQ-14",
-        "summary": "Add loading state animations: skeleton loaders or pulse animations for content that is loading, and smooth transitions when content appears",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/loading/SkeletonLoader.tsx",
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx",
-          "frontend/src/pages/BusinessCardPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/loading/SkeletonLoader.tsx",
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx",
-          "frontend/src/pages/BusinessCardPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-15",
-        "summary": "Modernize the visual design with updated typography (larger, bolder headings with better hierarchy), refined spacing, and contemporary card/container styles with subtle shadows or borders",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/components/layout/Header.tsx",
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx",
-          "frontend/src/pages/BusinessCardPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/tailwind.config.js",
-          "frontend/src/components/layout/Header.tsx",
-          "frontend/src/pages/BookmarksPage.tsx",
-          "frontend/src/pages/SavedContentPage.tsx",
-          "frontend/src/pages/IdeasPage.tsx",
-          "frontend/src/pages/RemindersPage.tsx",
-          "frontend/src/pages/BusinessCardPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-16",
-        "summary": "Add animated empty state illustrations: when lists are empty, show animated icons or illustrations (subtle motion like floating or pulsing)",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/empty-states/EmptyState.tsx",
-          "frontend/tailwind.config.js"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/empty-states/EmptyState.tsx",
-          "frontend/tailwind.config.js"
+          "frontend/src/components/share/ShareCardDialog.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
+    "backend/main.mo",
     "build-request.json",
-    "build-template/README.md",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/src/App.tsx",
-    "frontend/src/components/auth/LoginButton.tsx",
-    "frontend/src/components/auth/ProfileSetupDialog.tsx",
-    "frontend/src/components/content/BookmarkForm.tsx",
-    "frontend/src/components/content/SavedContentForm.tsx",
-    "frontend/src/components/empty-states/EmptyState.tsx",
-    "frontend/src/components/ideas/IdeaForm.tsx",
-    "frontend/src/components/layout/AppLayout.tsx",
-    "frontend/src/components/layout/BottomNav.tsx",
-    "frontend/src/components/layout/Header.tsx",
-    "frontend/src/components/loading/SkeletonLoader.tsx",
-    "frontend/src/components/reminders/ReminderForm.tsx",
-    "frontend/src/index.css",
-    "frontend/src/pages/BookmarksPage.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/share/ShareCardDialog.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
     "frontend/src/pages/BusinessCardPage.tsx",
-    "frontend/src/pages/IdeasPage.tsx",
-    "frontend/src/pages/RemindersPage.tsx",
-    "frontend/src/pages/SavedContentPage.tsx",
-    "frontend/tailwind.config.js",
+    "frontend/src/pages/PublicBusinessCardPage.tsx",
+    "frontend/src/utils/urlParams.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

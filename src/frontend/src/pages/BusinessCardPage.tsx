@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { useGetBusinessCard, useSaveBusinessCard } from '../hooks/useQueries';
+import { useInternetIdentity } from '../hooks/useInternetIdentity';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Edit, Save, X } from 'lucide-react';
+import { Edit, Save, X, Share2 } from 'lucide-react';
 import EmptyState from '../components/empty-states/EmptyState';
 import { SkeletonForm } from '../components/loading/SkeletonLoader';
+import ShareCardDialog from '../components/share/ShareCardDialog';
 import type { BusinessCard } from '../backend';
 
 export default function BusinessCardPage() {
   const { data: businessCard, isLoading } = useGetBusinessCard();
+  const { identity } = useInternetIdentity();
   const saveBusinessCard = useSaveBusinessCard();
   const [isEditing, setIsEditing] = useState(false);
+  const [isShareDialogOpen, setIsShareDialogOpen] = useState(false);
   const [formData, setFormData] = useState<BusinessCard>({
     fullName: '',
     title: '',
@@ -39,6 +43,16 @@ export default function BusinessCardPage() {
       setFormData(businessCard);
     }
     setIsEditing(false);
+  };
+
+  const handleShare = () => {
+    setIsShareDialogOpen(true);
+  };
+
+  const getShareUrl = () => {
+    if (!identity) return '';
+    const principal = identity.getPrincipal().toString();
+    return `${window.location.origin}/card/${principal}`;
   };
 
   if (isLoading) {
@@ -173,53 +187,66 @@ export default function BusinessCardPage() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto fade-in">
-      <Card className="shadow-elevated interactive-lift">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-2xl">Business Card</CardTitle>
-          <Button onClick={() => setIsEditing(true)} variant="outline" size="sm" className="interactive-scale">
-            <Edit className="mr-2 h-4 w-4" />
-            Edit
-          </Button>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div>
-            <h2 className="text-3xl font-bold mb-1">{businessCard.fullName}</h2>
-            <p className="text-lg text-muted-foreground">{businessCard.title}</p>
-          </div>
-          {businessCard.phone && (
-            <div>
-              <Label className="text-xs text-muted-foreground">Phone</Label>
-              <p className="text-base font-medium">{businessCard.phone}</p>
+    <>
+      <div className="max-w-2xl mx-auto fade-in">
+        <Card className="shadow-elevated interactive-lift">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle className="text-2xl">Business Card</CardTitle>
+            <div className="flex gap-2">
+              <Button onClick={handleShare} variant="outline" size="sm" className="interactive-scale">
+                <Share2 className="mr-2 h-4 w-4" />
+                Share
+              </Button>
+              <Button onClick={() => setIsEditing(true)} variant="outline" size="sm" className="interactive-scale">
+                <Edit className="mr-2 h-4 w-4" />
+                Edit
+              </Button>
             </div>
-          )}
-          {businessCard.email && (
+          </CardHeader>
+          <CardContent className="space-y-6">
             <div>
-              <Label className="text-xs text-muted-foreground">Email</Label>
-              <p className="text-base font-medium">{businessCard.email}</p>
+              <h2 className="text-3xl font-bold mb-1">{businessCard.fullName}</h2>
+              <p className="text-lg text-muted-foreground">{businessCard.title}</p>
             </div>
-          )}
-          {businessCard.website && (
-            <div>
-              <Label className="text-xs text-muted-foreground">Website</Label>
-              <a
-                href={businessCard.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-medium text-primary hover:underline"
-              >
-                {businessCard.website}
-              </a>
-            </div>
-          )}
-          {businessCard.bio && (
-            <div>
-              <Label className="text-xs text-muted-foreground">Bio</Label>
-              <p className="text-base leading-relaxed mt-1">{businessCard.bio}</p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </div>
+            {businessCard.phone && (
+              <div>
+                <Label className="text-xs text-muted-foreground">Phone</Label>
+                <p className="text-base font-medium">{businessCard.phone}</p>
+              </div>
+            )}
+            {businessCard.email && (
+              <div>
+                <Label className="text-xs text-muted-foreground">Email</Label>
+                <p className="text-base font-medium">{businessCard.email}</p>
+              </div>
+            )}
+            {businessCard.website && (
+              <div>
+                <Label className="text-xs text-muted-foreground">Website</Label>
+                <a
+                  href={businessCard.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium text-primary hover:underline"
+                >
+                  {businessCard.website}
+                </a>
+              </div>
+            )}
+            {businessCard.bio && (
+              <div>
+                <Label className="text-xs text-muted-foreground">Bio</Label>
+                <p className="text-base leading-relaxed mt-1">{businessCard.bio}</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+      <ShareCardDialog
+        isOpen={isShareDialogOpen}
+        onClose={() => setIsShareDialogOpen(false)}
+        shareUrl={getShareUrl()}
+      />
+    </>
   );
 }

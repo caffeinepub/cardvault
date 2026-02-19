@@ -1,14 +1,14 @@
 {
   "frontend/src/index.css": "Enhanced global styles with modern typography hierarchy, micro-interaction utilities, smooth animation keyframes, and accessibility support for reduced motion preferences.",
-  "frontend/src/App.tsx": "Main app component handling authentication flow, profile setup with proper isOpen prop, and rendering AppLayout with theme provider and toast notifications.",
-  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including user profiles, business cards, saved content, bookmarks, ideas, and reminders with optimistic updates and toast notifications.",
+  "frontend/src/App.tsx": "Main app component with routing logic that detects public card routes and renders PublicBusinessCardPage without authentication, otherwise handles normal authenticated flow.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including new useGetBusinessCardByPrincipal hook for fetching public business cards by principal ID.",
   "frontend/src/pages/SignInPage.tsx": "Sign-in page with CardVault branding, Internet Identity authentication button, and gradient background.",
   "frontend/src/components/auth/ProfileSetupDialog.tsx": "Profile setup dialog with scale-in entrance animation, focus ring animations on inputs, and button press feedback.",
   "frontend/src/components/auth/LoginButton.tsx": "Login/logout button with interactive scale and press animations using utility classes.",
   "frontend/src/components/layout/AppLayout.tsx": "Main layout component with fade-in page transitions when switching between sections using CSS animations.",
   "frontend/src/components/layout/Header.tsx": "App header with slide-in-down animation, displaying section title with icon, user name, and login button with modern typography.",
   "frontend/src/components/layout/BottomNav.tsx": "Bottom navigation with smooth transitions, hover effects, and scale animations on navigation buttons with active state styling.",
-  "frontend/src/pages/BusinessCardPage.tsx": "Business card page with scale-in dialog animations, interactive lift effects on cards, focus ring animations on inputs, skeleton loading states, and proper null checking for businessCard.",
+  "frontend/src/pages/BusinessCardPage.tsx": "Business card page with edit functionality and new Share button that opens ShareCardDialog to generate and display shareable URLs.",
   "frontend/src/pages/SavedContentPage.tsx": "Saved content page using ContentType enum for filtering with staggered fade-in animations for list items, interactive lift effects on cards, and skeleton loading states.",
   "frontend/src/pages/BookmarksPage.tsx": "Bookmarks page using ContentType enum for filtering with staggered fade-in animations for list items, interactive lift effects on cards, and skeleton loading states.",
   "frontend/src/pages/IdeasPage.tsx": "Ideas page with staggered fade-in animations for list items, interactive lift effects on cards, and skeleton loading states.",
@@ -19,5 +19,8 @@
   "frontend/src/components/reminders/ReminderForm.tsx": "Reminder form dialog with scale-in entrance animation, focus ring animations on inputs, and button press feedback.",
   "frontend/src/components/empty-states/EmptyState.tsx": "Empty state component with floating animation on illustration image using CSS keyframes.",
   "frontend/tailwind.config.js": "Extended Tailwind configuration with refined typography scale, modern shadow utilities, custom animation keyframes (float, pulse-soft), and Inter font family.",
-  "frontend/src/components/loading/SkeletonLoader.tsx": "Reusable skeleton loader components (SkeletonCard, SkeletonList, SkeletonForm) with animated pulse effects for loading states."
+  "frontend/src/components/loading/SkeletonLoader.tsx": "Reusable skeleton loader components (SkeletonCard, SkeletonList, SkeletonForm) with animated pulse effects for loading states.",
+  "frontend/src/utils/urlParams.ts": "Utility functions for parsing URL parameters including getSecretParameter for admin tokens, detecting public business card routes, and extracting principal IDs from URLs.",
+  "frontend/src/components/share/ShareCardDialog.tsx": "Dialog component for displaying and copying shareable business card URLs with copy-to-clipboard functionality and toast feedback.",
+  "frontend/src/pages/PublicBusinessCardPage.tsx": "Public-facing page that displays business cards via shareable links without requiring authentication, includes CardVault branding and error handling."
 }

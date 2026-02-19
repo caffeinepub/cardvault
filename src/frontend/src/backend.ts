@@ -139,6 +139,7 @@ export interface backendInterface {
     deleteReminder(id: string): Promise<void>;
     deleteSavedContent(id: string): Promise<void>;
     getBusinessCard(): Promise<BusinessCard | null>;
+    getBusinessCardByPrincipal(principal: Principal): Promise<BusinessCard | null>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
     getUpcomingReminders(): Promise<Array<Reminder>>;
@@ -281,6 +282,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getBusinessCard();
+            return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getBusinessCardByPrincipal(arg0: Principal): Promise<BusinessCard | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getBusinessCardByPrincipal(arg0);
+                return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getBusinessCardByPrincipal(arg0);
             return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
         }
     }
